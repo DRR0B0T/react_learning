@@ -3,20 +3,22 @@ import TodoList from "./Todo/TodoList";
 
 
 function App() {
-    let todos = [
+    const [todos, setTodos] = React.useState([
         {id:1, completed:false, title: 'Практиковаться в йоге'},
         {id:2, completed:false, title: 'Сделать пробежку'},
         {id:3, completed:false, title: 'Купить еды'},
         {id:4, completed:false, title: 'Купить дом'},
-]
+    ])
+
 
     function toggleTodo(id) {
-        todos = todos.map(todo => {
+        setTodos (
+            todos.map(todo => {
             if(todo.id === id){
                 todo.completed = !todo.completed
             }
             return todo
-        })
+        }))
     }
 
   return (
@@ -29,3 +31,4 @@ function App() {
 
 }
 export default App;
+
